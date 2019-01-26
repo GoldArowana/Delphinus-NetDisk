@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <name>Delphinus-NetDisk Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <properties>
@@ -41,10 +40,15 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>-->
+            <!--<artifactId>Delphinus-NetDisk</artifactId>-->
+            <!--<groupId>com.aries.netdisk</groupId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>
-        <finalName>Delphinus-NetDisk</finalName>
+        <finalName>Delphinus-NetDisk</finalName><!-- 改成自己的项目名 -->
         <plugins>
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
@@ -76,6 +80,25 @@
                         <goals>
                             <goal>site</goal>
                         </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
                         <phase>deploy</phase>
                     </execution>
                 </executions>
